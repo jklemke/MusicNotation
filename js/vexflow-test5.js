@@ -3,27 +3,30 @@ const vexFlowContext = midiNote.getVexFlowContext();
 const trebleBar1 = midiNote.setKeySignature("treble", 40);
 const bassBar1 = midiNote.setKeySignature("bass", 120);
 
-let tones = [];
-tones.push({value: ["e/4"], duration: "8"});
-tones.push({value: ["f/4"], duration: "8"});
-tones.push({value: ["g/4"], duration: "8"});
-tones.push({value: ["b/4"], duration: "8"});
+var trebleNotesBar1Beam1 = midiNote.createNoteArray(
+    "treble",
+    [
+        {value: ["e/4"], duration: "8"},
+        {value: ["f/4"], duration: "8"},
+        {value: ["g/4"], duration: "8"},
+        {value: ["b/4"], duration: "8"}   
+    ]
+);
 
-var trebleNotesBar1Beam1 = midiNote.createNoteArray("treble", tones);
-
-tones = [];
-tones.push({value: ["e/4"], duration: "8"});
-tones.push({value: ["f/4"], duration: "8"});
-tones.push({value: ["d/4"], duration: "8"});
-tones.push({value: ["e/4"], duration: "8"});
-
-var trebleNotesBar1Beam2 = midiNote.createNoteArray("treble", tones);
+var trebleNotesBar1Beam2 = midiNote.createNoteArray(
+    "treble",
+    [
+        {value: ["e/4"], duration: "8"},
+        {value: ["f/4"], duration: "8"},
+        {value: ["d/4"], duration: "8"},
+        {value: ["e/4"], duration: "8"}   
+    ]
+);
 
 bar1Beams = [
     new Vex.Flow.Beam(trebleNotesBar1Beam1),
     new Vex.Flow.Beam(trebleNotesBar1Beam2)
 ]
-
 
 const allNotes = trebleNotesBar1Beam1.concat(trebleNotesBar1Beam2)
 
