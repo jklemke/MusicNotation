@@ -16,18 +16,13 @@ midiNote.setKeySignature = function(clef, y) {
     return bar1
 }
 
-midiNote.addBeamsToBar = function(bar, clef, tickables){
-    var trebleNotesBar1Beam1 = [
-        new Vex.Flow.StaveNote({clef: "treble", keys: ["e/4"], duration: "8" }),
-        new Vex.Flow.StaveNote({clef: "treble", keys: ["f/4"], duration: "8" }),
-        new Vex.Flow.StaveNote({clef: "treble", keys: ["g/4"], duration: "8" }),
-        new Vex.Flow.StaveNote({clef: "treble", keys: ["b/4"], duration: "8" }),
-    ];
+midiNote.createNoteArray = function(clef, tones){
+    let noteArray = [];
+    for (let i = 0; i < tones.length; i++) {
+         noteArray.push(
+            new Vex.Flow.StaveNote({clef: clef, keys: tones[i].value, duration: tones[i].duration })
+        )
+    }
 
-   /* let beams = [];
-    tickables.forEach(
-        beams.add new Vex.Flow.StaveNote({clef: "treble", keys: ["e/4"], duration: "8" })
-    )
-      //  tickable in tickables{
-    // to do forEach tickable in tickables call Vex.Flow.StaveNote and add to beams array
-    */}
+    return noteArray
+}
